@@ -1,0 +1,23 @@
+import 'package:mysql_client/mysql_client.dart';
+
+class ProductoSeeder {
+  static Future<void> run(MySQLConnection connection) async{
+    await connection.execute(
+      'INSERT INTO productos (nombre, precio) VALUES (:nombre, :precio)',
+      {
+        'nombre':'arroz',
+        'precio':12.50,
+      },
+    );
+
+    await connection.execute(
+      'INSERT INTO productos (nombre, precio) VALUES (:nombre, :precio)',
+      {
+        'nombre':'Azucar',
+        'precio': 8.50,
+      },
+    );
+
+    print('Productos Creados');
+  }
+}

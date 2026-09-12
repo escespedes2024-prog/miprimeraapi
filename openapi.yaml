@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: API de Productos
+  version: 1.0.0
+  description: Documentación de mi primera API en Dart
+
+servers:
+  - url: http://localhost:8080
+    description: Servidor Local
+
+paths:
+  /api/productos:
+    get:
+      summary: Obtener todos los productos
+      responses:
+        '200':
+          description: Lista de productos obtenida con éxito
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    nombre:
+                      type: string
+                    precio:
+                      type: number
